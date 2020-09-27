@@ -5,4 +5,13 @@
     <insert id="insertUser" parameterType="com.aliyun.bean.UserBean">
         insert into tbl_user_password(username,password) values(#{username},#{password})
     </insert>
+    <select id="selectUser" resultType="com.aliyun.bean.UserBean" parameterType="com.aliyun.bean.UserBean">
+        select username, password from tbl_user_password where username=#{username}
+    </select>
+    <update id="updateUser" parameterType="com.aliyun.bean.UserBean">
+        update tbl_user_password set password = #{password} where username=#{username}
+    </update>
+    <delete id="deleteUser" parameterType="com.aliyun.bean.UserBean">
+        delete from tbl_user_password where username=#{username}
+    </delete>
 </mapper>
